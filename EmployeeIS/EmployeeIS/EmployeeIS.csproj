@@ -55,6 +55,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ManagerCorporation.cs" />
+    <Compile Include="Logic\ManagerEmployee.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Corporation.cs" />
     <Compile Include="Models\Document.cs" />
@@ -104,8 +106,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CorporationCardForm.resx">
+      <DependentUpon>CorporationCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CorporationListForm.resx">
       <DependentUpon>CorporationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeCard.resx">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeListForm.resx">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WorkSpaceMDI.resx">
       <DependentUpon>WorkSpaceMDI.cs</DependentUpon>
@@ -123,8 +134,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

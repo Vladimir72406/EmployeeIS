@@ -14,9 +14,21 @@ namespace EmployeeIS.DataBase.DBMSSQL
             throw new NotImplementedException();
         }
 
-        public Corporation getCorporationById(int corporation_id)
+        public Result deleteCorporation(int corporation_id)
         {
             throw new NotImplementedException();
+        }
+
+        public Corporation getCorporationById(int corporation_id)
+        {
+            //throw new NotImplementedException();
+            Corporation corp = new Corporation();
+            if(corporation_id == 1) corp = new Corporation(1, "Тест 1", "");
+            else if (corporation_id == 2) corp = new Corporation(2, "Тест 2", "");
+            else if (corporation_id == 3) corp = new Corporation(3, "Тест 3", "");
+            else if (corporation_id == 4) corp = new Corporation(4, "Тест 4", "");
+
+            return corp;
         }
 
         public Employee getEmployeeById(int employee_id)
@@ -37,6 +49,16 @@ namespace EmployeeIS.DataBase.DBMSSQL
         }
 
         public List<Employee> getListEmployee()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Result insertCorporation(Corporation newCorporation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Result updateCorporation(Corporation modifiedCorporation)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EmployeeIS.Logic;
+using EmployeeIS.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,22 @@ namespace EmployeeIS.View
 {
     public partial class EmployeeListForm : Form
     {
+        List<Employee> lstEmployee = new List<Employee>();
+        ManagerEmployee managerEmployee = new ManagerEmployee();
         public EmployeeListForm()
         {
+            getEmployeeList();
             InitializeComponent();
+        }
+
+        private void getEmployeeList()
+        {
+            managerEmployee.getEmployeeList();            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

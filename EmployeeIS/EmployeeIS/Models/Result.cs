@@ -8,14 +8,14 @@ namespace EmployeeIS.Models
 {
     public class Result
     {
-        bool isError = false;
-        string error;
+        public bool hasError = false;
+        public string error;
 
         public Result() { }
 
-        public Result(bool _isError, string _error)
+        public Result(bool _hasError, string _error)
         {
-            isError = _isError;
+            hasError = _hasError;
             error = _error;
         }
     }

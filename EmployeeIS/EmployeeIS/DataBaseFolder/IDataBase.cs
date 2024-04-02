@@ -13,6 +13,11 @@ namespace EmployeeIS.DataBase
 
         List<Corporation> getListCorporation();
 
+        Result insertCorporation(Corporation newCorporation);
+        Result updateCorporation(Corporation modifiedCorporation);
+
+        Result deleteCorporation(int corporation_id);
+
         Employee getEmployeeById(int employee_id);
 
         List<Employee> getListEmployee();
@@ -20,6 +25,8 @@ namespace EmployeeIS.DataBase
         Result updateEmployee(Employee empl);
 
         Result CreateEmployee(Employee empl);
+
+        
 
 
     }

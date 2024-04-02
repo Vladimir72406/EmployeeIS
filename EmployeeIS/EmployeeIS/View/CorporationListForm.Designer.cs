@@ -39,6 +39,9 @@ namespace EmployeeIS.View
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -56,6 +59,7 @@ namespace EmployeeIS.View
             this.btnOpen.TabIndex = 1;
             this.btnOpen.Text = "Открыть";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnAdd
             // 
@@ -66,6 +70,7 @@ namespace EmployeeIS.View
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -76,6 +81,7 @@ namespace EmployeeIS.View
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -99,7 +105,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.dataGridView1);
             this.Name = "CorporationListForm";
-            this.Text = "CorporationListForm";
+            this.Text = "Список компаний";
             this.Load += new System.EventHandler(this.CorporationListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -1,7 +1,6 @@
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\EmployeeIS.exe.config
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\EmployeeIS.exe
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\EmployeeIS.pdb
-C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.csprojAssemblyReference.cache
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.Form1.resources
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.Properties.Resources.resources
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.WorkSpaceMDI.resources
@@ -10,3 +9,7 @@ C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeI
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.exe
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.pdb
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.CorporationListForm.resources
+C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.EmployeeListForm.resources
+C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.EmployeeCard.resources
+C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.csprojAssemblyReference.cache
+C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.CorporationCardForm.resources

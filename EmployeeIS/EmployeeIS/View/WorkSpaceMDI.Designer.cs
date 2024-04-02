@@ -34,7 +34,7 @@ namespace EmployeeIS.View
             this.открытьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CorporationListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@ namespace EmployeeIS.View
             // 
             this.открытьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem1,
-            this.выходToolStripMenuItem});
+            this.closeToolStripMenuItem});
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.открытьToolStripMenuItem.Text = "Файл";
@@ -80,12 +80,12 @@ namespace EmployeeIS.View
             this.EmployeeListToolStripMenuItem.Text = "Список сотрудников";
             this.EmployeeListToolStripMenuItem.Click += new System.EventHandler(this.EmployeeListToolStripMenuItem_Click);
             // 
-            // выходToolStripMenuItem
+            // closeToolStripMenuItem
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Text = "Выход";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // WorkSpaceMDI
             // 
@@ -111,6 +111,6 @@ namespace EmployeeIS.View
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem CorporationListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmployeeListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }
