@@ -26,7 +26,14 @@ namespace EmployeeIS.DataBase.DBMSSQL
 
         public List<Corporation> getListCorporation()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            List<Corporation> lst = new List<Corporation>();
+            lst.Add(new Corporation(1, "Тест 1", ""));
+            lst.Add(new Corporation(2, "Тест 2", ""));
+            lst.Add(new Corporation(3, "Тест 3", ""));
+            lst.Add(new Corporation(4, "Тест 4", ""));
+
+            return lst;
         }
 
         public List<Employee> getListEmployee()

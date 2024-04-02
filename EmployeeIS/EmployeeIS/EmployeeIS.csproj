@@ -62,6 +62,39 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CorporationCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CorporationCardForm.Designer.cs">
+      <DependentUpon>CorporationCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorporationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CorporationListForm.Designer.cs">
+      <DependentUpon>CorporationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployeeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeCard.Designer.cs">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployeeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeListForm.Designer.cs">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkSpaceMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkSpaceMDI.Designer.cs">
+      <DependentUpon>WorkSpaceMDI.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,6 +104,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CorporationListForm.resx">
+      <DependentUpon>CorporationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkSpaceMDI.resx">
+      <DependentUpon>WorkSpaceMDI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logic\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

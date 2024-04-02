@@ -8,9 +8,9 @@ namespace EmployeeIS.Models
 {
     public class Corporation
     {
-        int corporation_id;
-        string corporation_name;
-        string corporation_inn;
+        public int corporation_id { get; set; }
+        public string corporation_name { get; set; }
+        public string corporation_inn { get; set; }
 
         public Corporation() { }
 
