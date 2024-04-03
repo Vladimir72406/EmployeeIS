@@ -16,12 +16,14 @@ namespace EmployeeIS.View
     {
         private Corporation corporation;
         private ManagerCorporation managerCorporation = new ManagerCorporation();
-        public CorporationCardForm(int corporation_id)
+        private CorporationListForm corporationListForm;
+        public CorporationCardForm(int corporation_id, CorporationListForm _corporationListForm)
         {
             GetCorporation(corporation_id);
             InitializeComponent();
 
             refreshField();
+            corporationListForm = _corporationListForm;
         }
 
         private void GetCorporation(int corporation_id)
@@ -81,6 +83,11 @@ namespace EmployeeIS.View
             EmployeeListForm employeeListForm = new EmployeeListForm(this.corporation.corporation_id);
             employeeListForm.MdiParent = this.MdiParent;
             employeeListForm.Show();
+        }
+
+        private void CorporationCardForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            corporationListForm.refreshCorporationList();
         }
     }
 }

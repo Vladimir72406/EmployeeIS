@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeIS.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,22 @@ namespace EmployeeIS.View
         public WorkSpaceMDI()
         {
             InitializeComponent();
-            this.Text = "Employee Information System";
+            //this.Text = "Employee Information System";
+            this.Text = "Информационная система сотрудников компаний.";
+            connectToDb();
+        }
+
+        private void connectToDb()
+        {
+            var dba = InstanceDB.getInstance();
+            try
+            {
+                dba.connect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка подключения к бд; " + e.Message.ToString());
+            }
         }
 
         private void CorporationListToolStripMenuItem_Click(object sender, EventArgs e)

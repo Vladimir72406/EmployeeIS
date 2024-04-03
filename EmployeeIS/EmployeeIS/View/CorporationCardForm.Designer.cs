@@ -150,6 +150,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.btnApply);
             this.Name = "CorporationCardForm";
             this.Text = "CorporationCardForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CorporationCardForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

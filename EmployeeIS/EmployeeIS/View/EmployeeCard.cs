@@ -47,7 +47,7 @@ namespace EmployeeIS.View
             txtSurname.Text = employee.surname.ToString();
             txtName.Text = employee.name.ToString();
             txtMiddleName.Text = employee.middle_name.ToString();
-            txtBirthDay.Text = employee.birthday.ToString();
+            dtpBirthDay.Value = employee.birthday;
             //txtEmployeeId.Text = employee.employee_id.ToString();
 
             this.Text = "Карточка сотрудника";
@@ -67,7 +67,7 @@ namespace EmployeeIS.View
             employee.surname = txtSurname.Text;
             employee.name = txtName.Text;
             employee.middle_name = txtMiddleName.Text;
-            employee.birthday = Convert.ToDateTime(txtBirthDay.Text);
+            employee.birthday = dtpBirthDay.Value;
 
             resultSave = managerEmployee.saveEmployee(employee);
             return resultSave;

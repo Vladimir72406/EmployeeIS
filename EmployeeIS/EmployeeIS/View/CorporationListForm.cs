@@ -28,6 +28,12 @@ namespace EmployeeIS.View
             lstCorporation = managerCorporation.getCorporationList();
         }
 
+        public void refreshCorporationList()
+        {
+            lstCorporation = managerCorporation.getCorporationList();
+            dataGridView1.DataSource = lstCorporation;
+        }
+
         private void CorporationListForm_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = lstCorporation;
@@ -40,9 +46,11 @@ namespace EmployeeIS.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            CorporationCardForm corporationCard = new CorporationCardForm(0);
+            CorporationCardForm corporationCard = new CorporationCardForm(0, this);
             corporationCard.MdiParent = this.MdiParent;
             corporationCard.Show();
+
+            getCorporation();
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -50,9 +58,11 @@ namespace EmployeeIS.View
             int corporation_id;
             corporation_id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["corporation_id"].Value);
 
-            CorporationCardForm corporationCard = new CorporationCardForm(corporation_id);
+            CorporationCardForm corporationCard = new CorporationCardForm(corporation_id, this);
             corporationCard.MdiParent = this.MdiParent;
             corporationCard.Show();
+
+            getCorporation();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -65,6 +75,10 @@ namespace EmployeeIS.View
             if (resultDeleteCorporation.hasError == true)
             {
                 MessageBox.Show(resultDeleteCorporation.error);
+            }
+            else
+            {
+                refreshCorporationList();
             }
         }
     }

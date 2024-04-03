@@ -9,6 +9,10 @@ namespace EmployeeIS.DataBase
 {
     public interface IDataBase
     {
+        void connect();
+        void disconnect();
+
+
         Corporation getCorporationById(int corporation_id);
         List<Corporation> getListCorporation();
         Result insertCorporation(Corporation newCorporation);
@@ -20,11 +24,5 @@ namespace EmployeeIS.DataBase
         List<Employee> getListEmployee(int corporation_id);
         Result insertEmployee(Employee employee);
         Result updateEmployee(Employee empl);
-        Result CreateEmployee(Employee empl);
-
-
-        
-
-
     }
 }

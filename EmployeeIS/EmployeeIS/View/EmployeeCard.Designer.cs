@@ -40,8 +40,8 @@ namespace EmployeeIS.View
             this.label3 = new System.Windows.Forms.Label();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBirthDay = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnOk
@@ -142,13 +142,6 @@ namespace EmployeeIS.View
             this.label4.TabIndex = 9;
             this.label4.Text = "Отчество";
             // 
-            // txtBirthDay
-            // 
-            this.txtBirthDay.Location = new System.Drawing.Point(114, 138);
-            this.txtBirthDay.Name = "txtBirthDay";
-            this.txtBirthDay.Size = new System.Drawing.Size(167, 20);
-            this.txtBirthDay.TabIndex = 12;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -158,12 +151,19 @@ namespace EmployeeIS.View
             this.label5.TabIndex = 11;
             this.label5.Text = "Дата рождения";
             // 
+            // dtpBirthDay
+            // 
+            this.dtpBirthDay.Location = new System.Drawing.Point(115, 138);
+            this.dtpBirthDay.Name = "dtpBirthDay";
+            this.dtpBirthDay.Size = new System.Drawing.Size(166, 20);
+            this.dtpBirthDay.TabIndex = 13;
+            // 
             // EmployeeCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 455);
-            this.Controls.Add(this.txtBirthDay);
+            this.Controls.Add(this.dtpBirthDay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMiddleName);
             this.Controls.Add(this.label4);
@@ -196,7 +196,7 @@ namespace EmployeeIS.View
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBirthDay;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpBirthDay;
     }
 }
