@@ -16,14 +16,10 @@ namespace EmployeeIS.View
     {
         private List<Employee> lstEmployee = new List<Employee>();
         private ManagerEmployee managerEmployee = new ManagerEmployee();
-        public EmployeeListForm()
+        private int corporation_id;
+        public EmployeeListForm(int _corporation_id)
         {
-            getEmployeeList(0);
-            InitializeComponent();
-        }
-
-        public EmployeeListForm(int corporation_id)
-        {
+            corporation_id = _corporation_id;
             getEmployeeList(corporation_id);
             InitializeComponent();
         }
@@ -45,7 +41,7 @@ namespace EmployeeIS.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            EmployeeCard employeeCard = new EmployeeCard(0);
+            EmployeeCard employeeCard = new EmployeeCard(0, this.corporation_id, this);
             employeeCard.MdiParent = this.MdiParent;
             employeeCard.Show();
         }
@@ -53,25 +49,35 @@ namespace EmployeeIS.View
         private void btnOpen_Click(object sender, EventArgs e)
         {
             int employee_id;
-            
-            employee_id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["employee_id"].Value);
-
-            EmployeeCard employeeCard = new EmployeeCard(employee_id);
-            employeeCard.MdiParent = this.MdiParent;
-            employeeCard.Show();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                employee_id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["employee_id"].Value);
+                EmployeeCard employeeCard = new EmployeeCard(employee_id, 0, this);
+                employeeCard.MdiParent = this.MdiParent;
+                employeeCard.Show();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int employee_id;
-            employee_id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["employee_id"].Value);
-
-            Result resultDeleteCorporation = managerEmployee.deleteEmployee(employee_id);
-
-            if (resultDeleteCorporation.hasError == true)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                MessageBox.Show(resultDeleteCorporation.error);
+                employee_id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["employee_id"].Value);
+
+                Result resultDeleteCorporation = managerEmployee.deleteEmployee(employee_id);
+
+                if (resultDeleteCorporation.hasError == true)
+                {
+                    MessageBox.Show(resultDeleteCorporation.error);
+                }
             }
+        }
+
+        public void refreshEmployeeList()
+        {
+            lstEmployee = managerEmployee.getEmployeeList(this.corporation_id);
+            dataGridView1.DataSource = lstEmployee;
         }
     }
 }

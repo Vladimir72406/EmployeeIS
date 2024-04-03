@@ -16,8 +16,12 @@ namespace EmployeeIS.View
     {
         private Employee employee;
         private ManagerEmployee managerEmployee = new ManagerEmployee();
-        public EmployeeCard(int employee_id)
+        private int corporation_id;
+        EmployeeListForm employeeListForm;
+        public EmployeeCard(int employee_id, int _corporation_id, EmployeeListForm _employeeListForm)
         {
+            this.corporation_id = _corporation_id;
+            this.employeeListForm = _employeeListForm;
             GetEmployee(employee_id);
             InitializeComponent();
 
@@ -32,7 +36,7 @@ namespace EmployeeIS.View
             }
             else
             {
-                employee = new Employee(0, "", "", "", new DateTime(1900, 1, 1));
+                employee = new Employee(0, "", "", "", new DateTime(1900, 1, 1), this.corporation_id);
             }
         }
 
@@ -69,6 +73,9 @@ namespace EmployeeIS.View
             employee.middle_name = txtMiddleName.Text;
             employee.birthday = dtpBirthDay.Value;
 
+            if (employee.employee_id == 0)
+                employee.corporation_id = corporation_id;
+
             resultSave = managerEmployee.saveEmployee(employee);
             return resultSave;
 
@@ -79,6 +86,11 @@ namespace EmployeeIS.View
             Result resultSave = save();
             if (resultSave.hasError == false) Close();
             else MessageBox.Show(resultSave.error);
+        }
+
+        private void EmployeeCard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            employeeListForm.refreshEmployeeList();
         }
     }
 }

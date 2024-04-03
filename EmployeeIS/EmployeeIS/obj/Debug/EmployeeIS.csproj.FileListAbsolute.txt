@@ -81,4 +81,3 @@ C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\ru\Micros
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.csproj.CopyComplete
-C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.csprojAssemblyReference.cache

@@ -43,7 +43,7 @@ namespace EmployeeIS.View
 
         private void EmployeeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmployeeListForm employeeListForm = new EmployeeListForm();
+            EmployeeListForm employeeListForm = new EmployeeListForm(0);
             employeeListForm.MdiParent = this;
             employeeListForm.Show();
 

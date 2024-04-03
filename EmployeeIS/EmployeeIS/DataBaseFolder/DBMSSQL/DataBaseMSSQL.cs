@@ -168,48 +168,197 @@ namespace EmployeeIS.DataBase.DBMSSQL
 
             return result;
         }
-
         //////////////////////////////////////
 
+        public List<Employee> getListEmployeeByCorporationId(int corporation_id)
+        {
+            List<Employee> lstEmployee = new List<Employee>();
 
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from	employee where corporation_id = @corporation_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
 
+            SqlParameter corporationIdSqlParm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporationIdSqlParm.Value = corporation_id;
 
+            command.Parameters.Add(corporationIdSqlParm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    lstEmployee.Add(new Employee(reader));                    
+                }
+                reader.Close();
+            }
+
+            return lstEmployee;
+        }
+
+        public List<Employee> getListEmployee()
+        {
+            List<Employee> lstEmployee = new List<Employee>();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from employee";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+            
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    lstEmployee.Add(new Employee(reader));
+                }
+                reader.Close();
+            }
+
+            return lstEmployee;
+        }
         public Employee getEmployeeById(int employee_id)
         {
-            Employee empl = new Employee();
-            if (employee_id == 1) empl = new Employee(1, "Мартирасян", "Евгений", "Сергеевич", new DateTime(1991, 12, 4));
-            else if (employee_id == 2) empl = new Employee(2, "Иванов", "Кирилл", "Олегович", new DateTime(1992, 11, 2));
-            else if (employee_id == 3) empl = new Employee(3, "Петров", "Роман", "Федорович", new DateTime(1993, 10, 12));
-            else if (employee_id == 4) empl = new Employee(4, "Сидоров", "Алексей", "Петрович", new DateTime(1994, 09, 3));
+            Employee employee = new Employee();
 
-            return empl;
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from employee where employee_id = @employee_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter corporationIdSqlParm = new SqlParameter("employee_id", SqlDbType.Int);
+            corporationIdSqlParm.Value = employee_id;
+            command.Parameters.Add(corporationIdSqlParm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    employee = new Employee(reader);
+                }
+                reader.Close();
+            }
+
+            return employee;
         }
 
-        
-
-        public List<Employee> getListEmployee(int corporation_id)
-        {
-            List<Employee> lst = new List<Employee>();
-
-            lst.Add(new Employee(1, "Мартирасян", "Евгений", "Сергеевич", new DateTime(1991, 12, 4)));
-            lst.Add(new Employee(2, "Иванов", "Кирилл", "Олегович", new DateTime(1992, 11, 2)));
-            lst.Add(new Employee(3, "Петров", "Роман", "Федорович", new DateTime(1993, 10, 12)));
-            lst.Add(new Employee(4, "Сидоров", "Алексей", "Петрович", new DateTime(1994, 09, 3)));
-
-            return lst;
-        }
-
-        
         public Result insertEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            Result resultInsert = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "insert into employee(surname, name, middle_name, birthday, corporation_id) " +
+                "values(@surname, @name, @middle_name, @birthday, @corporation_id); " +
+                "SELECT SCOPE_IDENTITY()";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+            
+            //@employee_id, @surname, @name, @middle_name, @birthday, @corporation_id
+            SqlParameter surname_sqlparm = new SqlParameter("surname", SqlDbType.NVarChar);
+            surname_sqlparm.Value = employee.surname;
+            command.Parameters.Add(surname_sqlparm);
+
+            SqlParameter name_sqlparm = new SqlParameter("name", SqlDbType.NVarChar);
+            name_sqlparm.Value = employee.name;
+            command.Parameters.Add(name_sqlparm);
+
+            SqlParameter middle_name_sqlparm = new SqlParameter("middle_name", SqlDbType.NVarChar);
+            middle_name_sqlparm.Value = employee.middle_name;
+            command.Parameters.Add(middle_name_sqlparm);
+
+            SqlParameter birthDay_sqlparm = new SqlParameter("birthday", SqlDbType.DateTime);
+            birthDay_sqlparm.Value = employee.birthday;
+            command.Parameters.Add(birthDay_sqlparm);
+
+            SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporation_id_sqlparm.Value = employee.corporation_id;
+            command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    employee.employee_id = Convert.ToInt32(reader.GetValue(0));
+                }
+                reader.Close();
+            }
+
+            return resultInsert;
+        }
+        
+        public Result updateEmployee(Employee employee)
+        {
+            Result resultInsert = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = 
+                "update employee " +
+                "set surname = @surname, name = @name, middle_name = @middle_name, birthday = @birthday, corporation_id = corporation_id " +
+                "where employee_id = @employee_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter employee_id_sqlparm = new SqlParameter("employee_id", SqlDbType.Int);
+            employee_id_sqlparm.Value = employee.employee_id;
+            command.Parameters.Add(employee_id_sqlparm);
+
+            SqlParameter surname_sqlparm = new SqlParameter("surname", SqlDbType.NVarChar);
+            surname_sqlparm.Value = employee.surname;
+            command.Parameters.Add(surname_sqlparm);
+
+            SqlParameter name_sqlparm = new SqlParameter("name", SqlDbType.NVarChar);
+            name_sqlparm.Value = employee.name;
+            command.Parameters.Add(name_sqlparm);
+
+            SqlParameter middle_name_sqlparm = new SqlParameter("middle_name", SqlDbType.NVarChar);
+            middle_name_sqlparm.Value = employee.middle_name;
+            command.Parameters.Add(middle_name_sqlparm);
+
+            SqlParameter birthDay_sqlparm = new SqlParameter("birthday", SqlDbType.DateTime);
+            birthDay_sqlparm.Value = employee.birthday;
+            command.Parameters.Add(birthDay_sqlparm);
+
+            SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporation_id_sqlparm.Value = employee.corporation_id;
+            command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    employee.employee_id = Convert.ToInt32(reader.GetValue(0));
+                }
+                reader.Close();
+            }
+
+            return resultInsert;
         }
 
-        
-
-        public Result updateEmployee(Employee empl)
+        public Result DeleteEmployee(int _employee_id)
         {
-            throw new NotImplementedException();
+            Result result = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "delete from employee where employee_id = @employee_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter employee_id_sqlparm = new SqlParameter("employee_id", SqlDbType.Int);
+            employee_id_sqlparm.Value = _employee_id;
+            command.Parameters.Add(employee_id_sqlparm);
+
+            command.ExecuteReader();
+
+            return result;
         }
     }
 }

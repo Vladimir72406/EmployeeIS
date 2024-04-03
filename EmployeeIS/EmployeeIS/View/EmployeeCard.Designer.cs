@@ -178,6 +178,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.btnOk);
             this.Name = "EmployeeCard";
             this.Text = "EmployeeCard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeCard_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

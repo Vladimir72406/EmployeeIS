@@ -16,7 +16,7 @@ namespace EmployeeIS.Logic
         {
             dba = InstanceDB.getInstance();
         }
-        public Result addCorporation(Employee empl)
+        public Result addEmployee(Employee empl)
         {
             throw new Exception();
         }
@@ -34,12 +34,20 @@ namespace EmployeeIS.Logic
 
         public Result deleteEmployee(int employee_id)
         {
-            throw new Exception();
+            return dba.DeleteEmployee(employee_id);
         }
 
         public List<Employee> getEmployeeList(int corporation_id)
         {
-            List<Employee> lst = dba.getListEmployee(corporation_id);
+            List<Employee> lst;
+            if (corporation_id > 0)
+            {
+                lst = dba.getListEmployeeByCorporationId(corporation_id);
+            }
+            else 
+            {
+                lst = dba.getListEmployee();
+            }
             return lst;
         }
 
