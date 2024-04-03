@@ -38,6 +38,7 @@ namespace EmployeeIS.View
             this.txtInn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCorporationId = new System.Windows.Forms.TextBox();
+            this.OpenListEmployee = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnApply
@@ -122,11 +123,22 @@ namespace EmployeeIS.View
             this.txtCorporationId.Size = new System.Drawing.Size(222, 20);
             this.txtCorporationId.TabIndex = 8;
             // 
+            // OpenListEmployee
+            // 
+            this.OpenListEmployee.Location = new System.Drawing.Point(13, 144);
+            this.OpenListEmployee.Name = "OpenListEmployee";
+            this.OpenListEmployee.Size = new System.Drawing.Size(140, 23);
+            this.OpenListEmployee.TabIndex = 9;
+            this.OpenListEmployee.Text = "Список сотрудников";
+            this.OpenListEmployee.UseVisualStyleBackColor = true;
+            this.OpenListEmployee.Click += new System.EventHandler(this.OpenListEmployee_Click);
+            // 
             // CorporationCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 180);
+            this.Controls.Add(this.OpenListEmployee);
             this.Controls.Add(this.txtCorporationId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtInn);
@@ -154,5 +166,6 @@ namespace EmployeeIS.View
         private System.Windows.Forms.TextBox txtInn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCorporationId;
+        private System.Windows.Forms.Button OpenListEmployee;
     }
 }

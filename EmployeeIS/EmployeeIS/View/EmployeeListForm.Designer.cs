@@ -45,6 +45,8 @@ namespace EmployeeIS.View
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 378);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -57,6 +59,7 @@ namespace EmployeeIS.View
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnOpen
             // 
@@ -67,6 +70,7 @@ namespace EmployeeIS.View
             this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Открыть";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnDelete
             // 
@@ -77,6 +81,7 @@ namespace EmployeeIS.View
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -101,6 +106,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.dataGridView1);
             this.Name = "EmployeeListForm";
             this.Text = "Список сотрудников";
+            this.Load += new System.EventHandler(this.EmployeeListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

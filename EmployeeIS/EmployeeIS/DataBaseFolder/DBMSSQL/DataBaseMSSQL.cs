@@ -33,12 +33,17 @@ namespace EmployeeIS.DataBase.DBMSSQL
 
         public Employee getEmployeeById(int employee_id)
         {
-            throw new NotImplementedException();
+            Employee empl = new Employee();
+            if (employee_id == 1) empl = new Employee(1, "Мартирасян", "Евгений", "Сергеевич", new DateTime(1991, 12, 4));
+            else if (employee_id == 2) empl = new Employee(2, "Иванов", "Кирилл", "Олегович", new DateTime(1992, 11, 2));
+            else if (employee_id == 3) empl = new Employee(3, "Петров", "Роман", "Федорович", new DateTime(1993, 10, 12));
+            else if (employee_id == 4) empl = new Employee(4, "Сидоров", "Алексей", "Петрович", new DateTime(1994, 09, 3));
+
+            return empl;
         }
 
         public List<Corporation> getListCorporation()
-        {
-            //throw new NotImplementedException();
+        {            
             List<Corporation> lst = new List<Corporation>();
             lst.Add(new Corporation(1, "Тест 1", ""));
             lst.Add(new Corporation(2, "Тест 2", ""));
@@ -48,12 +53,24 @@ namespace EmployeeIS.DataBase.DBMSSQL
             return lst;
         }
 
-        public List<Employee> getListEmployee()
+        public List<Employee> getListEmployee(int corporation_id)
+        {
+            List<Employee> lst = new List<Employee>();
+
+            lst.Add(new Employee(1, "Мартирасян", "Евгений", "Сергеевич", new DateTime(1991, 12, 4)));
+            lst.Add(new Employee(2, "Иванов", "Кирилл", "Олегович", new DateTime(1992, 11, 2)));
+            lst.Add(new Employee(3, "Петров", "Роман", "Федорович", new DateTime(1993, 10, 12)));
+            lst.Add(new Employee(4, "Сидоров", "Алексей", "Петрович", new DateTime(1994, 09, 3)));
+
+            return lst;
+        }
+
+        public Result insertCorporation(Corporation newCorporation)
         {
             throw new NotImplementedException();
         }
 
-        public Result insertCorporation(Corporation newCorporation)
+        public Result insertEmployee(Employee employee)
         {
             throw new NotImplementedException();
         }

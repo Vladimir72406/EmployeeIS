@@ -10,15 +10,19 @@ namespace EmployeeIS.Logic
 {
     public class ManagerCorporation
     {
-        IDataBase dba = InstanceDB.getInstance();
+        IDataBase dba;
+        public ManagerCorporation()
+        {
+            dba = InstanceDB.getInstance();
+        }
         public Result saveCorporation(Corporation corporation)
         {
             Result result = new Result();
             if (corporation.corporation_id > 0)
             {
                 try
-                {
-                    result = dba.insertCorporation(corporation);
+                {                    
+                    result = dba.updateCorporation(corporation);
                 }
                 catch (Exception e)
                 {
@@ -30,7 +34,7 @@ namespace EmployeeIS.Logic
             {
                 try
                 {
-                    result = dba.updateCorporation(corporation);
+                    result = dba.insertCorporation(corporation);
                 }
                 catch (Exception e)
                 {

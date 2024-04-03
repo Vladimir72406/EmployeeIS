@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,20 @@ namespace EmployeeIS.Models
 {
     public class Employee
     {
-        int employee_id;
-        string surname;
-        string name;
-        string middle_name;
-        DateTime birthday;
+        [DisplayName("ID")]
+        public int employee_id { get; set; }
+
+        [DisplayName("Фамилия")]
+        public string surname { get; set; }
+
+        [DisplayName("Имя")]
+        public string name { get; set; }
+
+        [DisplayName("Отчество")]
+        public string middle_name { get; set; }
+
+        [DisplayName("Дата рождения")]
+        public DateTime birthday { get; set; }
 
         public Employee() { }
 

@@ -37,24 +37,26 @@ namespace EmployeeIS.View
         }
 
         private void refreshField()
-        {
+        {            
             this.txtCorporationId.Text = corporation.corporation_id.ToString();
             this.txtInn.Text = corporation.corporation_inn;
             this.txtName.Text = corporation.corporation_name;
+
+            this.Text = corporation.corporation_name;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             Result resultSave = save();
             if (resultSave.hasError == false) Close();
-            else MessageBox.Show(resultSave.error);
-            
+            else MessageBox.Show(resultSave.error);            
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
             Result resultSave = save();
             if (resultSave.hasError == true) MessageBox.Show(resultSave.error);
+            refreshField();
         }
 
         private Result save()
@@ -72,6 +74,13 @@ namespace EmployeeIS.View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void OpenListEmployee_Click(object sender, EventArgs e)
+        {
+            EmployeeListForm employeeListForm = new EmployeeListForm(this.corporation.corporation_id);
+            employeeListForm.MdiParent = this.MdiParent;
+            employeeListForm.Show();
         }
     }
 }

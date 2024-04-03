@@ -1,4 +1,5 @@
-﻿using EmployeeIS.Models;
+﻿using EmployeeIS.DataBase;
+using EmployeeIS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace EmployeeIS.Logic
 {
     class ManagerEmployee
     {
+
+        IDataBase dba;
+        public ManagerEmployee()
+        {
+            dba = InstanceDB.getInstance();
+        }
         public Result addCorporation(Employee empl)
         {
             throw new Exception();
@@ -21,7 +28,8 @@ namespace EmployeeIS.Logic
 
         public Employee getEmployeeById(int employee_id)
         {
-            throw new Exception();
+            Employee employee = dba.getEmployeeById(employee_id);
+            return employee;
         }
 
         public Result deleteEmployee(int employee_id)
@@ -29,9 +37,41 @@ namespace EmployeeIS.Logic
             throw new Exception();
         }
 
-        public List<Employee> getEmployeeList()
+        public List<Employee> getEmployeeList(int corporation_id)
         {
-            throw new Exception();
+            List<Employee> lst = dba.getListEmployee(corporation_id);
+            return lst;
+        }
+
+        public Result saveEmployee(Employee employee)
+        {
+            Result resultSave = new Result();
+            if (employee.employee_id > 0)
+            {
+                try
+                {
+                    resultSave = dba.updateEmployee(employee);
+                }
+                catch (Exception e)
+                {
+                    resultSave.hasError = true;
+                    resultSave.error = e.Message.ToString();
+                }
+            }
+            else
+            {
+                try
+                {
+                    resultSave = dba.insertEmployee(employee);
+                }
+                catch (Exception e)
+                {
+                    resultSave.hasError = true;
+                    resultSave.error = e.Message.ToString();
+                }
+            }
+
+            return resultSave;
         }
     }
 }
