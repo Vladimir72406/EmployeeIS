@@ -42,12 +42,16 @@ namespace EmployeeIS.View
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
+            this.txtSeries = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(115, 420);
+            this.btnOk.Location = new System.Drawing.Point(115, 263);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 0;
@@ -58,7 +62,7 @@ namespace EmployeeIS.View
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(197, 420);
+            this.btnCancel.Location = new System.Drawing.Point(197, 263);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -69,7 +73,7 @@ namespace EmployeeIS.View
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(279, 420);
+            this.btnApply.Location = new System.Drawing.Point(279, 263);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 2;
@@ -158,11 +162,47 @@ namespace EmployeeIS.View
             this.dtpBirthDay.Size = new System.Drawing.Size(166, 20);
             this.dtpBirthDay.TabIndex = 13;
             // 
+            // txtSeries
+            // 
+            this.txtSeries.Location = new System.Drawing.Point(115, 164);
+            this.txtSeries.Name = "txtSeries";
+            this.txtSeries.Size = new System.Drawing.Size(167, 20);
+            this.txtSeries.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 164);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Серия";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Location = new System.Drawing.Point(115, 190);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(167, 20);
+            this.txtNumber.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 190);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Номер";
+            // 
             // EmployeeCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 455);
+            this.ClientSize = new System.Drawing.Size(366, 298);
+            this.Controls.Add(this.txtNumber);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtSeries);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpBirthDay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMiddleName);
@@ -199,5 +239,9 @@ namespace EmployeeIS.View
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpBirthDay;
+        private System.Windows.Forms.TextBox txtSeries;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.Label label7;
     }
 }

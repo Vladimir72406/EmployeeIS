@@ -175,7 +175,9 @@ namespace EmployeeIS.DataBase.DBMSSQL
             List<Employee> lstEmployee = new List<Employee>();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from	employee where corporation_id = @corporation_id";
+            command.CommandText = "" +
+                "select employee_id, surname, name, middle_name, birthday, corporation_id, series, number " +
+                "from employee where corporation_id = @corporation_id";
             command.CommandType = CommandType.Text;
             command.Connection = connection;
 
@@ -203,7 +205,9 @@ namespace EmployeeIS.DataBase.DBMSSQL
             List<Employee> lstEmployee = new List<Employee>();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from employee";
+            command.CommandText = "" +
+                "select employee_id, surname, name, middle_name, birthday, corporation_id, series, number " +
+                "from employee";
             command.CommandType = CommandType.Text;
             command.Connection = connection;
             
@@ -225,7 +229,10 @@ namespace EmployeeIS.DataBase.DBMSSQL
             Employee employee = new Employee();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select employee_id, surname, name, middle_name, birthday, corporation_id from employee where employee_id = @employee_id";
+            command.CommandText = "" +
+                "select employee_id, surname, name, middle_name, birthday, corporation_id, series, number " +
+                "from employee " +
+                "where employee_id = @employee_id";
             command.CommandType = CommandType.Text;
             command.Connection = connection;
 
@@ -252,8 +259,8 @@ namespace EmployeeIS.DataBase.DBMSSQL
             Result resultInsert = new Result();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "insert into employee(surname, name, middle_name, birthday, corporation_id) " +
-                "values(@surname, @name, @middle_name, @birthday, @corporation_id); " +
+            command.CommandText = "insert into employee(surname, name, middle_name, birthday, corporation_id, series, number) " +
+                "values(@surname, @name, @middle_name, @birthday, @corporation_id, @series, @number); " +
                 "SELECT SCOPE_IDENTITY()";
             command.CommandType = CommandType.Text;
             command.Connection = connection;
@@ -274,10 +281,18 @@ namespace EmployeeIS.DataBase.DBMSSQL
             SqlParameter birthDay_sqlparm = new SqlParameter("birthday", SqlDbType.DateTime);
             birthDay_sqlparm.Value = employee.birthday;
             command.Parameters.Add(birthDay_sqlparm);
-
+            
             SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
             corporation_id_sqlparm.Value = employee.corporation_id;
             command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlParameter series_sqlparm = new SqlParameter("series", SqlDbType.NVarChar);
+            series_sqlparm.Value = employee.series;
+            command.Parameters.Add(series_sqlparm);
+
+            SqlParameter number_sqlparm = new SqlParameter("number", SqlDbType.NVarChar);
+            number_sqlparm.Value = employee.number;
+            command.Parameters.Add(number_sqlparm);
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -300,7 +315,8 @@ namespace EmployeeIS.DataBase.DBMSSQL
             SqlCommand command = new SqlCommand();
             command.CommandText = 
                 "update employee " +
-                "set surname = @surname, name = @name, middle_name = @middle_name, birthday = @birthday, corporation_id = corporation_id " +
+                "set surname = @surname, name = @name, middle_name = @middle_name, " +
+                "       birthday = @birthday, corporation_id = corporation_id, series = @series, number = @number " +
                 "where employee_id = @employee_id";
             command.CommandType = CommandType.Text;
             command.Connection = connection;
@@ -328,6 +344,14 @@ namespace EmployeeIS.DataBase.DBMSSQL
             SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
             corporation_id_sqlparm.Value = employee.corporation_id;
             command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlParameter series_sqlparm = new SqlParameter("series", SqlDbType.NVarChar);
+            series_sqlparm.Value = employee.series;
+            command.Parameters.Add(series_sqlparm);
+
+            SqlParameter number_sqlparm = new SqlParameter("number", SqlDbType.NVarChar);
+            number_sqlparm.Value = employee.number;
+            command.Parameters.Add(number_sqlparm);
 
             SqlDataReader reader = command.ExecuteReader();
 

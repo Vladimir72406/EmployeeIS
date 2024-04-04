@@ -63,7 +63,7 @@ namespace EmployeeIS.View
             this.CorporationListToolStripMenuItem,
             this.EmployeeListToolStripMenuItem});
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
-            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.открытьToolStripMenuItem1.Text = "Открыть";
             // 
             // CorporationListToolStripMenuItem
@@ -83,7 +83,7 @@ namespace EmployeeIS.View
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.closeToolStripMenuItem.Text = "Выход";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -97,6 +97,7 @@ namespace EmployeeIS.View
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "WorkSpaceMDI";
             this.Text = "WorkSpaceMDI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkSpaceMDI_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

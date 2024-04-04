@@ -30,7 +30,7 @@ namespace EmployeeIS.View
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ошибка подключения к бд; " + e.Message.ToString());
+                MessageBox.Show("Ошибка подключения к бд; "); // + e.Message.ToString());; // ;
             }
         }
 
@@ -48,10 +48,28 @@ namespace EmployeeIS.View
             employeeListForm.Show();
 
         }
-                
+
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void WorkSpaceMDI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            disconnectDB();
+        }
+
+        private void disconnectDB()
+        {
+            var dba = InstanceDB.getInstance();
+            try
+            {
+                dba.disconnect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка завршения сеанса бд; " + e.Message.ToString());
+            }
         }
     }
 }

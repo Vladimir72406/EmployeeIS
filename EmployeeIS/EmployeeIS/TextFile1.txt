@@ -19,20 +19,14 @@ create table Employee
 	name varchar(255) null,
 	middle_name varchar(255) null,
 	birthday datetime NULL,
-)
-go
-create table Document
-(
-	document_id int primary key identity(1,1),
-	docyment_type varchar(10) NULL,
+	corporation_id int null,
 	series varchar(10) null,
 	number varchar(10) null
 )
 go
 create table Address
 (
-	address_id int primary key identity(1,1),
-	employee_id int NULL,
+	address_id int primary key identity(1,1),	
 	corporation_id int null,
 	address_type varchar(10) null,--физический/юридический
 	country varchar(20) NULL,

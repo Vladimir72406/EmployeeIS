@@ -36,7 +36,7 @@ namespace EmployeeIS.View
             }
             else
             {
-                employee = new Employee(0, "", "", "", new DateTime(1900, 1, 1), this.corporation_id);
+                employee = new Employee(0, "", "", "", new DateTime(1900, 1, 1), this.corporation_id, "", "");
             }
         }
 
@@ -52,7 +52,8 @@ namespace EmployeeIS.View
             txtName.Text = employee.name.ToString();
             txtMiddleName.Text = employee.middle_name.ToString();
             dtpBirthDay.Value = employee.birthday;
-            //txtEmployeeId.Text = employee.employee_id.ToString();
+            txtSeries.Text = employee.series;
+            txtNumber.Text = employee.number;
 
             this.Text = "Карточка сотрудника";
         }
@@ -72,13 +73,14 @@ namespace EmployeeIS.View
             employee.name = txtName.Text;
             employee.middle_name = txtMiddleName.Text;
             employee.birthday = dtpBirthDay.Value;
+            employee.series = txtSeries.Text;
+            employee.number = txtNumber.Text;
 
             if (employee.employee_id == 0)
                 employee.corporation_id = corporation_id;
 
             resultSave = managerEmployee.saveEmployee(employee);
             return resultSave;
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)
