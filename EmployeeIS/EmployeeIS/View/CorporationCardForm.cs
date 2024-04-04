@@ -14,9 +14,13 @@ namespace EmployeeIS.View
 {
     public partial class CorporationCardForm : Form
     {
-        private Corporation corporation;
-        private ManagerCorporation managerCorporation = new ManagerCorporation();
         private CorporationListForm corporationListForm;
+
+        private Corporation corporation;
+        private List<Address> listAddress = new List<Address>();
+
+        private ManagerCorporation managerCorporation = new ManagerCorporation();
+        private ManagerAddress managerAddress = new ManagerAddress();
         public CorporationCardForm(int corporation_id, CorporationListForm _corporationListForm)
         {
             GetCorporation(corporation_id);
@@ -31,6 +35,7 @@ namespace EmployeeIS.View
             if (corporation_id > 0)
             {
                 corporation = managerCorporation.getCorporationById(corporation_id);
+                listAddress = managerAddress.getListAddressByCorporationId(corporation.corporation_id);
             }
             else
             {
@@ -45,6 +50,27 @@ namespace EmployeeIS.View
             this.txtName.Text = corporation.corporation_name;
 
             this.Text = corporation.corporation_name;
+
+            dgvListAddress.DataSource = listAddress;
+
+            if (corporation.corporation_id == 0)
+            {
+                btnAddAddress.Enabled = false;
+                btnDeleteAddress.Enabled = false;
+                btnOpenAddress.Enabled = false;
+            }
+            else
+            {
+                btnAddAddress.Enabled = true;
+                btnDeleteAddress.Enabled = true;
+                btnOpenAddress.Enabled = true;
+            }
+        }
+
+        public void refreshAddressList()
+        {            
+            listAddress = managerAddress.getListAddressByCorporationId(corporation.corporation_id);
+            dgvListAddress.DataSource = listAddress;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -88,6 +114,42 @@ namespace EmployeeIS.View
         private void CorporationCardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             corporationListForm.refreshCorporationList();
+        }
+
+        private void btnOpenAddress_Click(object sender, EventArgs e)
+        {
+            int address_id;
+            if (dgvListAddress.SelectedRows.Count > 0)
+            {
+                address_id = Convert.ToInt32(dgvListAddress.SelectedRows[0].Cells["address_id"].Value);
+
+                AddressCardForm addressCardForm = new AddressCardForm(address_id, this, corporation.corporation_id);
+                addressCardForm.MdiParent = this.MdiParent;
+                addressCardForm.Show(); // Dialog();
+            }
+        }
+
+        private void btnAddAddress_Click(object sender, EventArgs e)
+        {
+            AddressCardForm addressCardForm = new AddressCardForm(0, this, corporation.corporation_id);
+            addressCardForm.MdiParent = this.MdiParent;            
+            addressCardForm.Show();//addressCardForm.ShowDialog();
+        }
+
+        private void btnDeleteAddress_Click(object sender, EventArgs e)
+        {
+            int address_id;
+            if (dgvListAddress.SelectedRows.Count > 0)
+            {
+                address_id = Convert.ToInt32(dgvListAddress.SelectedRows[0].Cells["address_id"].Value);
+
+                Result resultDeleteAddress = managerAddress.deleteAddress(address_id);
+
+                if (resultDeleteAddress.hasError == true)
+                {
+                    MessageBox.Show(resultDeleteAddress.error);
+                }
+            }
         }
     }
 }

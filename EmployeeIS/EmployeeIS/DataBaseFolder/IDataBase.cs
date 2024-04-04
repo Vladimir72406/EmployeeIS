@@ -23,10 +23,16 @@ namespace EmployeeIS.DataBase
         //
         List<Employee> getListEmployeeByCorporationId(int corporation_id);
         List<Employee> getListEmployee();
-        Employee getEmployeeById(int employee_id);
-        
+        Employee getEmployeeById(int employee_id);        
         Result insertEmployee(Employee employee);
         Result updateEmployee(Employee empl);
         Result DeleteEmployee(int employee_id);
+
+        //
+        List<Address> getListAddressByCorporationID(int corporation_id);
+        Address getAddressByID(int address_id);
+        Result insertAddress(Address newAddress);
+        Result updateAddress(Address modifiedAddress);
+        Result deleteAddress(int address_id);
     }
 }

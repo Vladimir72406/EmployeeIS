@@ -1,5 +1,4 @@
-﻿
-create database eis
+﻿create database eis
 go
 --use master
 --drop database eis
@@ -28,7 +27,7 @@ create table Address
 (
 	address_id int primary key identity(1,1),	
 	corporation_id int null,
-	address_type varchar(10) null,--физический/юридический
+	address_type varchar(20) null,--физический/юридический
 	country varchar(20) NULL,
 	city varchar(100) null,
 	street varchar(255) NULL,

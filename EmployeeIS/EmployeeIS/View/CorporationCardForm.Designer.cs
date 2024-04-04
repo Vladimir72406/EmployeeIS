@@ -39,12 +39,19 @@ namespace EmployeeIS.View
             this.label3 = new System.Windows.Forms.Label();
             this.txtCorporationId = new System.Windows.Forms.TextBox();
             this.OpenListEmployee = new System.Windows.Forms.Button();
+            this.dgvListAddress = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddAddress = new System.Windows.Forms.Button();
+            this.btnOpenAddress = new System.Windows.Forms.Button();
+            this.btnDeleteAddress = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAddress)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(432, 145);
+            this.btnApply.Location = new System.Drawing.Point(508, 328);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -55,7 +62,7 @@ namespace EmployeeIS.View
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(351, 145);
+            this.btnCancel.Location = new System.Drawing.Point(427, 328);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -66,7 +73,7 @@ namespace EmployeeIS.View
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(270, 145);
+            this.btnOk.Location = new System.Drawing.Point(346, 328);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 2;
@@ -125,7 +132,8 @@ namespace EmployeeIS.View
             // 
             // OpenListEmployee
             // 
-            this.OpenListEmployee.Location = new System.Drawing.Point(13, 144);
+            this.OpenListEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.OpenListEmployee.Location = new System.Drawing.Point(12, 328);
             this.OpenListEmployee.Name = "OpenListEmployee";
             this.OpenListEmployee.Size = new System.Drawing.Size(140, 23);
             this.OpenListEmployee.TabIndex = 9;
@@ -133,11 +141,64 @@ namespace EmployeeIS.View
             this.OpenListEmployee.UseVisualStyleBackColor = true;
             this.OpenListEmployee.Click += new System.EventHandler(this.OpenListEmployee_Click);
             // 
+            // dgvListAddress
+            // 
+            this.dgvListAddress.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListAddress.Location = new System.Drawing.Point(8, 19);
+            this.dgvListAddress.Name = "dgvListAddress";
+            this.dgvListAddress.ReadOnly = true;
+            this.dgvListAddress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListAddress.Size = new System.Drawing.Size(562, 140);
+            this.dgvListAddress.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDeleteAddress);
+            this.groupBox1.Controls.Add(this.btnOpenAddress);
+            this.groupBox1.Controls.Add(this.btnAddAddress);
+            this.groupBox1.Controls.Add(this.dgvListAddress);
+            this.groupBox1.Location = new System.Drawing.Point(7, 110);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(576, 194);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Адреса";
+            // 
+            // btnAddAddress
+            // 
+            this.btnAddAddress.Location = new System.Drawing.Point(8, 165);
+            this.btnAddAddress.Name = "btnAddAddress";
+            this.btnAddAddress.Size = new System.Drawing.Size(75, 23);
+            this.btnAddAddress.TabIndex = 11;
+            this.btnAddAddress.Text = "Добавить";
+            this.btnAddAddress.UseVisualStyleBackColor = true;
+            this.btnAddAddress.Click += new System.EventHandler(this.btnAddAddress_Click);
+            // 
+            // btnOpenAddress
+            // 
+            this.btnOpenAddress.Location = new System.Drawing.Point(90, 165);
+            this.btnOpenAddress.Name = "btnOpenAddress";
+            this.btnOpenAddress.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenAddress.TabIndex = 12;
+            this.btnOpenAddress.Text = "Открыть";
+            this.btnOpenAddress.UseVisualStyleBackColor = true;
+            this.btnOpenAddress.Click += new System.EventHandler(this.btnOpenAddress_Click);
+            // 
+            // btnDeleteAddress
+            // 
+            this.btnDeleteAddress.Location = new System.Drawing.Point(172, 165);
+            this.btnDeleteAddress.Name = "btnDeleteAddress";
+            this.btnDeleteAddress.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteAddress.TabIndex = 13;
+            this.btnDeleteAddress.Text = "Удалить";
+            this.btnDeleteAddress.UseVisualStyleBackColor = true;
+            this.btnDeleteAddress.Click += new System.EventHandler(this.btnDeleteAddress_Click);
+            // 
             // CorporationCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 180);
+            this.ClientSize = new System.Drawing.Size(595, 363);
             this.Controls.Add(this.OpenListEmployee);
             this.Controls.Add(this.txtCorporationId);
             this.Controls.Add(this.label3);
@@ -148,9 +209,13 @@ namespace EmployeeIS.View
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CorporationCardForm";
             this.Text = "CorporationCardForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CorporationCardForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAddress)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +233,10 @@ namespace EmployeeIS.View
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCorporationId;
         private System.Windows.Forms.Button OpenListEmployee;
+        private System.Windows.Forms.DataGridView dgvListAddress;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnDeleteAddress;
+        private System.Windows.Forms.Button btnOpenAddress;
+        private System.Windows.Forms.Button btnAddAddress;
     }
 }

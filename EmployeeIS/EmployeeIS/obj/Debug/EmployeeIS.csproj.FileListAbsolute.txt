@@ -82,3 +82,4 @@ C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeI
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.exe
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.pdb
 C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.csprojAssemblyReference.cache
+C:\Users\zhukv\source\repos\EmployeeIS\EmployeeIS\EmployeeIS\obj\Debug\EmployeeIS.View.AddressCardForm.resources

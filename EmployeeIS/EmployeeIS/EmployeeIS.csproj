@@ -158,15 +158,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ManagerAddress.cs" />
     <Compile Include="Logic\ManagerCorporation.cs" />
     <Compile Include="Logic\ManagerEmployee.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Corporation.cs" />
-    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\AddressCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddressCardForm.Designer.cs">
+      <DependentUpon>AddressCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CorporationCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AddressCardForm.resx">
+      <DependentUpon>AddressCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CorporationCardForm.resx">
       <DependentUpon>CorporationCardForm.cs</DependentUpon>
     </EmbeddedResource>

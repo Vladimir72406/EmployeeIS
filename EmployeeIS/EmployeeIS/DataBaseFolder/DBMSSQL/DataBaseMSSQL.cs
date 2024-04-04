@@ -199,7 +199,6 @@ namespace EmployeeIS.DataBase.DBMSSQL
 
             return lstEmployee;
         }
-
         public List<Employee> getListEmployee()
         {
             List<Employee> lstEmployee = new List<Employee>();
@@ -310,7 +309,7 @@ namespace EmployeeIS.DataBase.DBMSSQL
         
         public Result updateEmployee(Employee employee)
         {
-            Result resultInsert = new Result();
+            Result resultUpdate = new Result();
 
             SqlCommand command = new SqlCommand();
             command.CommandText = 
@@ -353,18 +352,9 @@ namespace EmployeeIS.DataBase.DBMSSQL
             number_sqlparm.Value = employee.number;
             command.Parameters.Add(number_sqlparm);
 
-            SqlDataReader reader = command.ExecuteReader();
+            command.ExecuteReader();
 
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    employee.employee_id = Convert.ToInt32(reader.GetValue(0));
-                }
-                reader.Close();
-            }
-
-            return resultInsert;
+            return resultUpdate;
         }
 
         public Result DeleteEmployee(int _employee_id)
@@ -384,5 +374,181 @@ namespace EmployeeIS.DataBase.DBMSSQL
 
             return result;
         }
+
+        //
+        public List<Address> getListAddressByCorporationID(int _corporation_id)
+        {
+            List<Address> lstAddress = new List<Address>();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "" +
+                "select * from address where corporation_id = @corporation_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter corporationIdSqlParm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporationIdSqlParm.Value = _corporation_id;
+
+            command.Parameters.Add(corporationIdSqlParm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    lstAddress.Add(new Address(reader));
+                }
+                reader.Close();
+            }
+
+            return lstAddress;
+        }
+        public Address getAddressByID(int _address_id)
+        {
+            Address address = new Address();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "" +
+                "select * from address where address_id = @address_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter addressId_sqlParm = new SqlParameter("address_id", SqlDbType.Int);
+            addressId_sqlParm.Value = _address_id;
+            command.Parameters.Add(addressId_sqlParm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    address = new Address(reader);
+                }
+                reader.Close();
+            }
+
+            return address;
+        }
+        public Result insertAddress(Address newAddress)
+        {
+            Result resultInsert = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "insert into address(corporation_id,address_type,country,city,street,home,apartment) " +
+                "values(@corporation_id, @address_type, @country, @city, @street, @home, @apartment); " +
+                "SELECT SCOPE_IDENTITY()";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporation_id_sqlparm.Value = newAddress.corporation_id;
+            command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlParameter addressType_sqlparm = new SqlParameter("address_type", SqlDbType.NVarChar);
+            addressType_sqlparm.Value = newAddress.address_type;
+            command.Parameters.Add(addressType_sqlparm);
+
+            SqlParameter country_sqlparm = new SqlParameter("country", SqlDbType.NVarChar);
+            country_sqlparm.Value = newAddress.country;
+            command.Parameters.Add(country_sqlparm);
+
+            SqlParameter city_sqlparm = new SqlParameter("city", SqlDbType.NVarChar);
+            city_sqlparm.Value = newAddress.city;
+            command.Parameters.Add(city_sqlparm);
+
+            SqlParameter street_sqlparm = new SqlParameter("street", SqlDbType.NVarChar);
+            street_sqlparm.Value = newAddress.street;
+            command.Parameters.Add(street_sqlparm);
+
+            SqlParameter home_sqlparm = new SqlParameter("home", SqlDbType.NVarChar);
+            home_sqlparm.Value = newAddress.home;
+            command.Parameters.Add(home_sqlparm);
+
+            SqlParameter apartment_sqlparm = new SqlParameter("apartment", SqlDbType.NVarChar);
+            apartment_sqlparm.Value = newAddress.apartment;
+            command.Parameters.Add(apartment_sqlparm);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    newAddress.address_id = Convert.ToInt32(reader.GetValue(0));
+                }
+                reader.Close();
+            }
+
+            return resultInsert;
+        }
+        public Result updateAddress(Address modifiedAddress)
+        {
+            Result resultUpdate = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText =
+                "update address " +
+                "set corporation_id = @corporation_id,address_type = @address_type,country = @country," +
+                "       city = @city,street = @street,home = @home,apartment = @apartment " +
+                "where address_id = @address_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter address_id_sqlparm = new SqlParameter("address_id", SqlDbType.Int);
+            address_id_sqlparm.Value = modifiedAddress.address_id;
+            command.Parameters.Add(address_id_sqlparm);
+
+            SqlParameter corporation_id_sqlparm = new SqlParameter("corporation_id", SqlDbType.Int);
+            corporation_id_sqlparm.Value = modifiedAddress.corporation_id;
+            command.Parameters.Add(corporation_id_sqlparm);
+
+            SqlParameter addressType_sqlparm = new SqlParameter("address_type", SqlDbType.NVarChar);
+            addressType_sqlparm.Value = modifiedAddress.address_type;
+            command.Parameters.Add(addressType_sqlparm);
+
+            SqlParameter country_sqlparm = new SqlParameter("country", SqlDbType.NVarChar);
+            country_sqlparm.Value = modifiedAddress.country;
+            command.Parameters.Add(country_sqlparm);
+
+            SqlParameter city_sqlparm = new SqlParameter("city", SqlDbType.NVarChar);
+            city_sqlparm.Value = modifiedAddress.city;
+            command.Parameters.Add(city_sqlparm);
+
+            SqlParameter street_sqlparm = new SqlParameter("street", SqlDbType.DateTime);
+            street_sqlparm.Value = modifiedAddress.street;
+            command.Parameters.Add(street_sqlparm);
+
+            SqlParameter home_sqlparm = new SqlParameter("home", SqlDbType.Int);
+            home_sqlparm.Value = modifiedAddress.home;
+            command.Parameters.Add(home_sqlparm);
+
+            SqlParameter apartment_sqlparm = new SqlParameter("apartment", SqlDbType.NVarChar);
+            apartment_sqlparm.Value = modifiedAddress.apartment;
+            command.Parameters.Add(apartment_sqlparm);
+
+            command.ExecuteReader();
+
+            return resultUpdate;
+        }
+        public Result deleteAddress(int _address_id)
+        {
+            Result result = new Result();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "delete from address where adress_id = @address_id";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+            SqlParameter address_id_sqlparm = new SqlParameter("address_id", SqlDbType.Int);
+            address_id_sqlparm.Value = _address_id;
+            command.Parameters.Add(address_id_sqlparm);
+
+            command.ExecuteReader();
+
+            return result;
+        }
+
     }
 }

@@ -51,7 +51,7 @@ namespace EmployeeIS.View
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(115, 263);
+            this.btnOk.Location = new System.Drawing.Point(98, 270);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace EmployeeIS.View
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(197, 263);
+            this.btnCancel.Location = new System.Drawing.Point(180, 270);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace EmployeeIS.View
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(279, 263);
+            this.btnApply.Location = new System.Drawing.Point(262, 270);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 2;
@@ -95,14 +95,14 @@ namespace EmployeeIS.View
             this.txtEmployeeId.Location = new System.Drawing.Point(114, 34);
             this.txtEmployeeId.Name = "txtEmployeeId";
             this.txtEmployeeId.ReadOnly = true;
-            this.txtEmployeeId.Size = new System.Drawing.Size(167, 20);
+            this.txtEmployeeId.Size = new System.Drawing.Size(222, 20);
             this.txtEmployeeId.TabIndex = 4;
             // 
             // txtSurname
             // 
             this.txtSurname.Location = new System.Drawing.Point(114, 60);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(167, 20);
+            this.txtSurname.Size = new System.Drawing.Size(222, 20);
             this.txtSurname.TabIndex = 6;
             // 
             // label2
@@ -118,7 +118,7 @@ namespace EmployeeIS.View
             // 
             this.txtName.Location = new System.Drawing.Point(114, 86);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(167, 20);
+            this.txtName.Size = new System.Drawing.Size(222, 20);
             this.txtName.TabIndex = 8;
             // 
             // label3
@@ -134,7 +134,7 @@ namespace EmployeeIS.View
             // 
             this.txtMiddleName.Location = new System.Drawing.Point(114, 112);
             this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(167, 20);
+            this.txtMiddleName.Size = new System.Drawing.Size(222, 20);
             this.txtMiddleName.TabIndex = 10;
             // 
             // label4
@@ -159,14 +159,14 @@ namespace EmployeeIS.View
             // 
             this.dtpBirthDay.Location = new System.Drawing.Point(115, 138);
             this.dtpBirthDay.Name = "dtpBirthDay";
-            this.dtpBirthDay.Size = new System.Drawing.Size(166, 20);
+            this.dtpBirthDay.Size = new System.Drawing.Size(221, 20);
             this.dtpBirthDay.TabIndex = 13;
             // 
             // txtSeries
             // 
             this.txtSeries.Location = new System.Drawing.Point(115, 164);
             this.txtSeries.Name = "txtSeries";
-            this.txtSeries.Size = new System.Drawing.Size(167, 20);
+            this.txtSeries.Size = new System.Drawing.Size(222, 20);
             this.txtSeries.TabIndex = 15;
             // 
             // label6
@@ -182,7 +182,7 @@ namespace EmployeeIS.View
             // 
             this.txtNumber.Location = new System.Drawing.Point(115, 190);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(167, 20);
+            this.txtNumber.Size = new System.Drawing.Size(222, 20);
             this.txtNumber.TabIndex = 17;
             // 
             // label7
@@ -198,7 +198,7 @@ namespace EmployeeIS.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 298);
+            this.ClientSize = new System.Drawing.Size(349, 305);
             this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtSeries);
@@ -216,6 +216,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EmployeeCard";
             this.Text = "EmployeeCard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeCard_FormClosing);
