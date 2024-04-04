@@ -81,5 +81,66 @@ namespace EmployeeIS.View
                 refreshCorporationList();
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {            
+            ManagerExport managerExport = new ManagerExport();
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult result = folderBrowserDialog.ShowDialog();
+            String selectedFolderForSaveFile = "";
+
+            if (result == DialogResult.OK)
+            {
+                selectedFolderForSaveFile = folderBrowserDialog.SelectedPath.ToString();
+
+                var resultExport = managerExport.export(this.lstCorporation, selectedFolderForSaveFile);
+                if (resultExport.hasError == true)
+                    MessageBox.Show(resultExport.error);
+
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            ManagerImport managerImport = new ManagerImport();
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "All Files (*.*)|*.csv";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.Multiselect = false;
+
+            DialogResult resultSelect = openFileDialog.ShowDialog();
+
+            if (resultSelect == DialogResult.OK)
+            {
+                string _selectedFileName = openFileDialog.FileName;
+                ResultImportCorporation resultLoad = managerImport.import(_selectedFileName);
+
+                if (resultLoad.hasError == true)
+                    MessageBox.Show(resultLoad.error);
+                else
+                {
+                    saveList(resultLoad.listCorporation);
+                    showImportedCorporation(resultLoad.listCorporation);
+                }
+
+            }
+        }
+
+        private void showImportedCorporation(List<Corporation> _lst)
+        {
+            dataGridView1.DataSource = _lst;            
+        }
+
+        private void saveList(List<Corporation> _lst)
+        {
+            foreach (var item in _lst)//последствия неправлильной архитектуры.
+            {
+                item.corporation_id = 0;
+            }
+
+            ManagerCorporation managerCorporation = new ManagerCorporation();
+            managerCorporation.saveListCorporation(_lst);
+        }
     }
 }

@@ -71,5 +71,13 @@ namespace EmployeeIS.Logic
             List<Corporation> lst = dba.getListCorporation();
             return lst;
         }
+
+        public void saveListCorporation(List<Corporation> _lst)
+        {
+            foreach (var item in _lst)
+            {
+                this.saveCorporation(item);
+            }
+        }
     }
 }
