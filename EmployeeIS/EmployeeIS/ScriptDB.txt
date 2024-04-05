@@ -37,3 +37,43 @@ create table Address
 go
 
 
+
+use eis
+go
+declare @corporation_id int
+
+insert into Corporation(corporation_name, corporation_inn) values ('ООО «Яндекс»', '7736207543')
+
+set @corporation_id = @@IDENTITY
+
+insert into Address (corporation_id,address_type,country,city,street,home,apartment)
+values(@corporation_id,'Фактический','Россия','Москва','Льва Толстого','16',null)
+
+insert into Address (corporation_id,address_type,country,city,street,home,apartment)
+values(@corporation_id,'Юридический','Россия','Москва','Льва Толстого','16',null)
+
+insert into Employee(surname,name,middle_name,birthday,corporation_id,series,number)
+values('Иванов','Иван','Иванович',convert(datetime,'1991-12-01'),@corporation_id,'1234',123456)
+
+insert into Employee(surname,name,middle_name,birthday,corporation_id,series,number)
+values('Сидоров','Петр','Арнольдович',convert(datetime,'2000-12-01'),@corporation_id,'1234',123456)
+
+
+
+insert into Corporation(corporation_name, corporation_inn) values ('ООО "МЭЙЛ.РУ ГРУП"', '7736207543')
+
+set @corporation_id = @@IDENTITY
+
+insert into Address (corporation_id,address_type,country,city,street,home,apartment)
+values(@corporation_id,'Фактический','Россия','Москва','Ленинградский пр-кт','39','79')
+
+insert into Address (corporation_id,address_type,country,city,street,home,apartment)
+values(@corporation_id,'Юридический','Россия','Москва','Ленинградский пр-кт','39','79')
+
+insert into Employee(surname,name,middle_name,birthday,corporation_id,series,number)
+values('Петров','Иван','Иванович',convert(datetime,'1991-12-01'),@corporation_id,'1234',123456)
+
+insert into Employee(surname,name,middle_name,birthday,corporation_id,series,number)
+values('Марков','Петр','Арнольдович',convert(datetime,'2000-12-01'),@corporation_id,'1234',123456)
+
+

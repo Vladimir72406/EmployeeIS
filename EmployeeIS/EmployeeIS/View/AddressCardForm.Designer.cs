@@ -237,7 +237,7 @@ namespace EmployeeIS.View
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddressCardForm";
-            this.Text = "AddressCardForm";
+            this.Text = "Адрес компании";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddressCardForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

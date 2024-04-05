@@ -516,11 +516,11 @@ namespace EmployeeIS.DataBase.DBMSSQL
             city_sqlparm.Value = modifiedAddress.city;
             command.Parameters.Add(city_sqlparm);
 
-            SqlParameter street_sqlparm = new SqlParameter("street", SqlDbType.DateTime);
+            SqlParameter street_sqlparm = new SqlParameter("street", SqlDbType.NVarChar);
             street_sqlparm.Value = modifiedAddress.street;
             command.Parameters.Add(street_sqlparm);
 
-            SqlParameter home_sqlparm = new SqlParameter("home", SqlDbType.Int);
+            SqlParameter home_sqlparm = new SqlParameter("home", SqlDbType.NVarChar);
             home_sqlparm.Value = modifiedAddress.home;
             command.Parameters.Add(home_sqlparm);
 

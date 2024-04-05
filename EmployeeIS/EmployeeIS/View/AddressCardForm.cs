@@ -21,6 +21,7 @@ namespace EmployeeIS.View
 
         public AddressCardForm(int _address_id, CorporationCardForm _corporationCardForm, int _corporation_id)
         {
+            this.Text = "Адрес компании";
             corporationCardForm = _corporationCardForm;
             corporation_id = _corporation_id;
             GetAddress(_address_id);
